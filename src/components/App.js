@@ -29,7 +29,7 @@ const BrowserRouter = ({ children }) => {
 };
 
 // Custom Link Component
-const Link = ({ to, children, className = '' }) => {
+const Link = ({ to, children, className = '', ...props }) => {
   const { navigate } = React.useContext(RouterContext);
 
   const handleClick = (e) => {
@@ -38,7 +38,7 @@ const Link = ({ to, children, className = '' }) => {
   };
 
   return (
-    <a href={to} onClick={handleClick} className={className}>
+    <a href={to} onClick={handleClick} className={className} {...props}>
       {children}
     </a>
   );
@@ -68,15 +68,6 @@ const Home = () => {
             <p className="text-xl text-gray-600 mb-6">
               This is the home page of our React Router demonstration application.
             </p>
-            <div className="flex justify-center">
-              <Link
-                to="/about"
-                className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition duration-300 transform hover:scale-105"
-                data-testid="home-about-link"
-              >
-                Learn More About Us
-              </Link>
-            </div>
           </div>
         </div>
       </div>
@@ -97,20 +88,6 @@ const About = () => {
             <p className="text-xl text-gray-600 mb-6">
               This is a sample React Router program.
             </p>
-            <p className="text-gray-600 mb-6">
-              This application demonstrates the basic functionality of React Router, 
-              including navigation between different pages, URL updates, and dynamic 
-              content rendering based on the current route.
-            </p>
-            <div className="flex justify-center">
-              <Link
-                to="/"
-                className="bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-6 rounded-lg transition duration-300 transform hover:scale-105"
-                data-testid="about-home-link"
-              >
-                Back to Home
-              </Link>
-            </div>
           </div>
         </div>
       </div>
@@ -141,7 +118,6 @@ const Navigation = () => {
                   ? 'bg-blue-600 text-white'
                   : 'text-gray-600 hover:text-blue-600 hover:bg-blue-50'
               }`}
-              data-testid="nav-home"
             >
               Home
             </Link>
@@ -152,7 +128,6 @@ const Navigation = () => {
                   ? 'bg-green-600 text-white'
                   : 'text-gray-600 hover:text-green-600 hover:bg-green-50'
               }`}
-              data-testid="nav-about"
             >
               About
             </Link>
