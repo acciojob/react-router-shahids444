@@ -72,6 +72,7 @@ const Home = () => {
               <Link
                 to="/about"
                 className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition duration-300 transform hover:scale-105"
+                data-testid="home-about-link"
               >
                 Learn More About Us
               </Link>
@@ -105,6 +106,7 @@ const About = () => {
               <Link
                 to="/"
                 className="bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-6 rounded-lg transition duration-300 transform hover:scale-105"
+                data-testid="about-home-link"
               >
                 Back to Home
               </Link>
@@ -139,6 +141,7 @@ const Navigation = () => {
                   ? 'bg-blue-600 text-white'
                   : 'text-gray-600 hover:text-blue-600 hover:bg-blue-50'
               }`}
+              data-testid="nav-home"
             >
               Home
             </Link>
@@ -149,6 +152,7 @@ const Navigation = () => {
                   ? 'bg-green-600 text-white'
                   : 'text-gray-600 hover:text-green-600 hover:bg-green-50'
               }`}
+              data-testid="nav-about"
             >
               About
             </Link>
